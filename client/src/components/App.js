@@ -1,8 +1,7 @@
 import React from 'react'
 import '../App.css';
 import Account from './Account';
-import {HashRouter as Router,Route, Routes} from 'react-router-dom'
-
+import {BrowserRouter as Router,Route, Routes} from 'react-router-dom'
 import Landing from './Landing'
 import Navigation from './Navigation';
 import SignIn from './SignIn'
