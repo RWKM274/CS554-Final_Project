@@ -96,7 +96,7 @@ router.post('/Candies/updateStock', async (req,res) =>{
         res.status(400).json({error: '[candy Routes] stock number is not provided'})
         return
     }
-    if(typeof(stockNumber) !== 'number'){
+    if(isNaN(parseInt(stockNumber))){
         res.status(400).json({error: '[candy Routes] stock number type is not number'})
         return
     }   
