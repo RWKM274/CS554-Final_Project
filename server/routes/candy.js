@@ -71,7 +71,8 @@ router.post('/Candy/searchByName', async (req,res) =>{
 
 router.post('/Candies/updateStock', async (req,res) =>{
     let candyId = xss(req.body.id);
-    let stockNumber = xss(req.body.newStockNumber);
+    let theStockNumber = xss(req.body.newStockNumber);
+    let stockNumber = parseInt(theStockNumber);
     if (stockNumber === 0) stockNumber = -1;
     //console.log(req.body)
     
@@ -96,7 +97,7 @@ router.post('/Candies/updateStock', async (req,res) =>{
         res.status(400).json({error: '[candy Routes] stock number is not provided'})
         return
     }
-    if(isNaN(parseInt(stockNumber))){
+    if(typeof(stockNumber) !== 'number'){
         res.status(400).json({error: '[candy Routes] stock number type is not number'})
         return
     }   
@@ -117,7 +118,9 @@ router.post('/Candies/updateStock', async (req,res) =>{
 
 router.post('/Candies/stockDelete', async (req,res) =>{
     let candyId = xss(req.body.id);
-    let stockNumber = xss(req.body.newStockNumber);
+    let theStockNumber = xss(req.body.newStockNumber);
+    let stockNumber = parseInt(theStockNumber);
+
 
     if(!candyId){
         res.status(400).json({error: '[candy Routes] id is not provided'})
