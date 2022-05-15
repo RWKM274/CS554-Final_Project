@@ -93,7 +93,7 @@ router.post('/Candies/updateStock', async (req,res) =>{
         return
     }
     
-    if(!stockNumber){
+    if(!stockNumber && stockNumber !== 0){
         res.status(400).json({error: '[candy Routes] stock number is not provided'})
         return
     }
